@@ -22,7 +22,7 @@ const LAUNCH_OPTION = process.env.DYNO ? {
 };
 
 const crawler = async () => {
-  const browser = await puppeteer.launch(LAUNCH_OPTION); // Launch Optionの追加
+  const browser = await puppeteer.launch(LAUNCH_OPTION);
   const page = await browser.newPage();
   await page.goto('https://news.ycombinator.com', {
     waitUntil: 'networkidle2'
