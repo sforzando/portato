@@ -35,11 +35,13 @@ const crawler = async () => {
     waitUntil: 'networkidle2'
   });
 
+  // Login to control panel
   await page.type('#account_username', process.env.account_username);
   await page.type('#account_password', process.env.account_password);
   await page.click('form input[type=submit]');
   await page.waitForNavigation();
 
+  // Check mailbox sizes
   await page.goto('https://my.zenlogic.jp/configurations/27822/mail/mailbox_sizes', {
     waitUntil: 'networkidle2'
   });
@@ -50,10 +52,12 @@ const crawler = async () => {
     path: 'screenshot.png',
     fullPage: true
   });
+
   const output = await page.evaluate(() => {
     const elements = document.querySelectorAll('tr');
     return [].map.call(elements, el => el.innerText.split('\t'));
   });
+
   await browser.close();
   return output;
 }
