@@ -1,0 +1,12 @@
+{
+  "name": "portato",
+  "version": "1.0.0",
+  "description": "Mail quota system for JMC",
+  "main": "index.js",
+  "repository": "https://github.com/sforzando/portato.git",
+  "author": "<developer@j-monkey.jp>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^0.13.0"
+  }
+}
