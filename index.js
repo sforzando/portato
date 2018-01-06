@@ -17,6 +17,11 @@ app.use(favicon(__dirname + '/favicon.ico'));
 app.listen(process.env.PORT || 3000);
 
 const puppeteer = require('puppeteer');
+
+if (!process.env.DYNO) {
+  require('dotenv').config();
+}
+
 const LAUNCH_OPTION = process.env.DYNO ? {
   args: ['--no-sandbox', '--disable-setuid-sandbox']
 } : {
@@ -30,8 +35,8 @@ const crawler = async () => {
     waitUntil: 'networkidle2'
   });
 
-  await page.type('#account_username', 'xxxxxxxx');
-  await page.type('#account_password', 'xxxxxxxx');
+  await page.type('#account_username', process.env.account_username);
+  await page.type('#account_password', process.env.account_password);
   await page.click('form input[type=submit]');
   await page.waitForNavigation();
 
@@ -41,7 +46,10 @@ const crawler = async () => {
   await page.select('select.mr5', 'j-monkey.jp');
   await page.waitFor(1000);
 
-  await page.screenshot({path: 'screenshot.png', fullPage: true});
+  await page.screenshot({
+    path: 'screenshot.png',
+    fullPage: true
+  });
   const output = await page.evaluate(() => {
     const elements = document.querySelectorAll('tr');
     return [].map.call(elements, el => el.innerText.split('\t'));

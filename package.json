@@ -7,6 +7,7 @@
   "author": "<developer@j-monkey.jp>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-favicon": "^2.0.0",
