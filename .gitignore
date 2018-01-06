@@ -103,4 +103,7 @@ typings/
 # dotenv environment variables file
 .env
 
-# End of https://www.gitignore.io/api/osx,node,linux
+# End of https://www.gitignore.io/api/osx,linux,node
+
+## Puppeteer
+screenshot.png
