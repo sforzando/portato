@@ -56,8 +56,23 @@ const crawler = async () => {
 
   // Get all rows
   const output = await page.evaluate(() => {
-    const elements = document.querySelectorAll('tr');
-    return [].map.call(elements, el => el.innerText.split('\t'));
+    const elements = document.querySelectorAll('tbody > tr');
+    let rows = [];
+    for (element of elements) {
+      const innerTexts = element.innerText.split('\t');
+      const account = innerTexts[0];
+      const num = parseInt(innerTexts[1].replace(' 件', ''), 10);
+      const size = parseFloat(innerTexts[2].replace(' MB', ''));
+      rows.push({account:account, num:num, size:size});
+    }
+    rows.sort((a, b) => {
+      if (a.size < b.size) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    return rows;
   });
 
   await browser.close();
