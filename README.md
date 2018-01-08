@@ -13,9 +13,12 @@ TOC
 - [Setup](#setup)
 	- [Local](#local)
 	- [Heroku](#heroku)
-- [Deploy](#deploy)
-	- [Local](#local)
-	- [Heroku](#heroku)
+	- [Execute](#execute)
+- [Deploy to Heroku](#deploy-to-heroku)
+- [ToDo](#todo)
+	- [HIGH (FIXME)](#high-fixme)
+	- [MID (TODO)](#mid-todo)
+	- [LOW (XXX)](#low-xxx)
 
 <!-- /TOC -->
 
@@ -40,17 +43,26 @@ $ heroku config:set account_username=USERNAME
 $ heroku config:set account_password=PASSWORD
 ```
 
-## Deploy
-### Local
+### Execute
 
 ```
 $ node index.js
 ```
 
-### Heroku
+## Deploy to Heroku
 
 ```
 $ git push heroku master
 ```
 
 see. https://portato.herokuapp.com
+
+## ToDo
+### HIGH (FIXME)
+- [ ] Send alert mail
+
+### MID (TODO)
+- [ ] Make data persistent
+
+### LOW (XXX)
+- [ ] Use cache

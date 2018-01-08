@@ -63,8 +63,14 @@ const crawler = async () => {
       const account = innerTexts[0];
       const num = parseInt(innerTexts[1].replace(' 件', ''), 10);
       const size = parseFloat(innerTexts[2].replace(' MB', ''));
-      rows.push({account:account, num:num, size:size});
+      rows.push({
+        account: account,
+        num: num,
+        size: size
+      });
     }
+
+    // Sort by size
     rows.sort((a, b) => {
       if (a.size < b.size) {
         return 1;
