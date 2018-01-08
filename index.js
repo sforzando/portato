@@ -31,11 +31,11 @@ const LAUNCH_OPTION = process.env.DYNO ? {
 const crawler = async () => {
   const browser = await puppeteer.launch(LAUNCH_OPTION);
   const page = await browser.newPage();
+
+  // Login to control panel
   await page.goto('https://my.zenlogic.jp/login/', {
     waitUntil: 'networkidle2'
   });
-
-  // Login to control panel
   await page.type('#account_username', process.env.account_username);
   await page.type('#account_password', process.env.account_password);
   await page.click('form input[type=submit]');
@@ -48,11 +48,13 @@ const crawler = async () => {
   await page.select('select.mr5', 'j-monkey.jp');
   await page.waitFor(1000);
 
+  // XXX: Take screenshot for DEBUG!
   await page.screenshot({
     path: 'screenshot.png',
     fullPage: true
   });
 
+  // Get all rows
   const output = await page.evaluate(() => {
     const elements = document.querySelectorAll('tr');
     return [].map.call(elements, el => el.innerText.split('\t'));
