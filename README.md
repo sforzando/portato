@@ -53,9 +53,8 @@ $ node index.js
 
 ```
 $ git push heroku master
+$ heroku open
 ```
-
-see. https://portato.herokuapp.com
 
 ## ToDo
 ### HIGH (FIXME)
