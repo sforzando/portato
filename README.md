@@ -13,7 +13,7 @@ TOC
 - [Setup](#setup)
 	- [Local](#local)
 	- [Heroku](#heroku)
-	- [Execute](#execute)
+- [Execute](#execute)
 - [Deploy to Heroku](#deploy-to-heroku)
 - [ToDo](#todo)
 	- [HIGH (FIXME)](#high-fixme)
@@ -43,7 +43,7 @@ $ heroku config:set account_username=USERNAME
 $ heroku config:set account_password=PASSWORD
 ```
 
-### Execute
+## Execute
 
 ```
 $ node index.js
