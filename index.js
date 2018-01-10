@@ -46,13 +46,7 @@ const crawler = async () => {
     waitUntil: 'networkidle2'
   });
   await page.select('select.mr5', 'j-monkey.jp');
-  await page.waitFor(1000);
-
-  // XXX: Take screenshot for DEBUG!
-  await page.screenshot({
-    path: 'screenshot.png',
-    fullPage: true
-  });
+  await page.waitFor(500);
 
   // Get all rows
   const output = await page.evaluate(() => {
