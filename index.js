@@ -46,7 +46,8 @@ const crawler = async () => {
     waitUntil: 'networkidle2'
   });
   await page.select('select.mr5', 'j-monkey.jp');
-  await page.waitFor(500);
+  // await page.waitFor(1000);
+  await page.waitForNavigation();
 
   // Get all rows
   const output = await page.evaluate(() => {
