@@ -1,5 +1,5 @@
 const Koa = require('koa');
-const bodyParser = require('koa-bodyparser');
+// const bodyParser = require('koa-bodyparser');
 const favicon = require('koa-favicon');
 const Router = require('koa-router');
 
@@ -12,7 +12,7 @@ router.get('/', async (ctx, next) => {
 
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.use(bodyParser());
+// app.use(bodyParser());
 app.use(favicon(__dirname + '/favicon.ico'));
 app.listen(process.env.PORT || 3000);
 
@@ -46,8 +46,7 @@ const crawler = async () => {
     waitUntil: 'networkidle2'
   });
   await page.select('select.mr5', 'j-monkey.jp');
-  // await page.waitFor(1000);
-  await page.waitForNavigation();
+  await page.waitFor(1000);
 
   // Get all rows
   const output = await page.evaluate(() => {
