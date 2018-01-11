@@ -16,5 +16,8 @@
   },
   "scripts": {
     "start": "node index.js"
+  },
+  "devDependencies": {
+    "mocha": "^4.1.0"
   }
 }

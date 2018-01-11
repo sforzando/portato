@@ -62,6 +62,7 @@ $ heroku open
 
 ### MID (TODO)
 - [ ] Make data persistent
+- [ ] Prepare CI
 
 ### LOW (XXX)
 - [ ] Use cache
