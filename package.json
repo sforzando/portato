@@ -15,7 +15,8 @@
     "puppeteer": "^0.13.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "mocha"
   },
   "devDependencies": {
     "mocha": "^4.1.0"
