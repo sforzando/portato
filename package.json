@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
+    "test": "mocha -t 30000"
   },
   "devDependencies": {
     "mocha": "^4.1.0"
