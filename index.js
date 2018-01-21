@@ -1,22 +1,43 @@
 const Koa = require('koa');
 // const bodyParser = require('koa-bodyparser');
-const favicon = require('koa-favicon');
+const Favicon = require('koa-favicon');
+const Puppeteer = require('puppeteer');
+const Render = require('koa-ejs');
 const Router = require('koa-router');
 
 const app = new Koa();
 const router = new Router();
 
+Render(app, {
+  root: __dirname + '/views',
+  layout: 'template',
+  viewExt: 'html',
+  cache: false,
+  debug: true
+});
+
 router.get('/', async (ctx, next) => {
   ctx.body = await crawler();
+});
+
+router.get('/debug', async (ctx, next) => {
+  const users = [{
+    name: '鈴木'
+  }, {
+    name: '佐藤'
+  }, {
+    name: '齋藤'
+  }];
+  await ctx.render('content', {
+    users
+  });
 });
 
 app.use(router.routes());
 app.use(router.allowedMethods());
 // app.use(bodyParser());
-app.use(favicon(__dirname + '/favicon.ico'));
+app.use(Favicon(__dirname + '/favicon.ico'));
 app.listen(process.env.PORT || 3000);
-
-const puppeteer = require('puppeteer');
 
 if (!process.env.DYNO) {
   require('dotenv').config();
@@ -29,7 +50,7 @@ const LAUNCH_OPTION = process.env.DYNO ? {
 };
 
 const crawler = async () => {
-  const browser = await puppeteer.launch(LAUNCH_OPTION);
+  const browser = await Puppeteer.launch(LAUNCH_OPTION);
   const page = await browser.newPage();
 
   // Login to control panel
