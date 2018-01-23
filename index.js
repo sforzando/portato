@@ -5,6 +5,8 @@ const Puppeteer = require('puppeteer');
 const Render = require('koa-ejs');
 const Router = require('koa-router');
 
+const User = require('./user');
+
 const app = new Koa();
 const router = new Router();
 
@@ -21,13 +23,7 @@ router.get('/', async (ctx, next) => {
 });
 
 router.get('/debug', async (ctx, next) => {
-  const users = [{
-    name: '鈴木'
-  }, {
-    name: '佐藤'
-  }, {
-    name: '齋藤'
-  }];
+  let users = [new User('example@example.com', 10, 10)]
   await ctx.render('content', {
     users
   });
@@ -75,19 +71,19 @@ const crawler = async () => {
     let rows = [];
     for (element of elements) {
       const innerTexts = element.innerText.split('\t');
-      const account = innerTexts[0];
-      const num = parseInt(innerTexts[1].replace(' 件', ''), 10);
-      const size = parseFloat(innerTexts[2].replace(' MB', ''));
+      const mail_address = innerTexts[0];
+      const mail_num = parseInt(innerTexts[1].replace(' 件', ''), 10);
+      const mailbox_size = parseFloat(innerTexts[2].replace(' MB', ''));
       rows.push({
-        account: account,
-        num: num,
-        size: size
+        mail_address: mail_address,
+        mail_num: mail_num,
+        mailbox_size: mailbox_size
       });
     }
 
-    // Sort by size
+    // Sort by mailbox_size
     rows.sort((a, b) => {
-      if (a.size < b.size) {
+      if (a.mailbox_size < b.mailbox_size) {
         return 1;
       } else {
         return -1;
