@@ -1,6 +1,18 @@
-<ul>
-  <% users %>
-  <% users.forEach((user) => { %>
-    <li><%= user.mail_address %></li>
-  <% }) %>
-</ul>
+<table id="table" class="tablesorter">
+  <thead>
+    <tr>
+      <th>メールアドレス</th>
+      <th>メール数</th>
+      <th>メールボックス使用量</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach((user) => { %>
+      <tr>
+        <td><%= user.mail_address %></td>
+        <td><%= user.mail_num %></td>
+        <td><%= user.mailbox_size %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

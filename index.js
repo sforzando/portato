@@ -4,6 +4,7 @@ const Favicon = require('koa-favicon');
 const Puppeteer = require('puppeteer');
 const Render = require('koa-ejs');
 const Router = require('koa-router');
+const Serve = require('koa-static');
 
 const User = require('./user');
 
@@ -17,6 +18,8 @@ Render(app, {
   cache: false,
   debug: true
 });
+
+app.use(Serve(__dirname + '/views'));
 
 router.get('/', async (ctx, next) => {
   ctx.body = await crawler();
@@ -58,7 +61,7 @@ const crawler = async () => {
   await page.click('form input[type=submit]');
   await page.waitForNavigation();
 
-  // Check mailbox sizes
+  // Check mailbox size
   await page.goto('https://my.zenlogic.jp/configurations/27822/mail/mailbox_sizes', {
     waitUntil: 'networkidle2'
   });
