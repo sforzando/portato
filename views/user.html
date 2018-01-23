@@ -1,18 +1,26 @@
-<table id="table" class="tablesorter">
-  <thead>
-    <tr>
+<table id="table" class="table is-bordered is-striped is-hoverable is-fullwidth">
+  <thead class="">
+    <tr class="">
       <th>メールアドレス</th>
       <th>メール数</th>
-      <th>メールボックス使用量 [MB]</th>
+      <th>メールボックス使用量</th>
     </tr>
   </thead>
   <tbody>
     <% users.forEach((user) => { %>
       <tr>
-        <td><%= user.mail_address %></td>
-        <td><%= user.mail_num %></td>
-        <td><%= user.mailbox_size %></td>
+        <td>
+          <%= user.mail_address %>
+        </td>
+        <td>
+          <%= user.mail_num %>
+        </td>
+        <td>
+          <%= user.mailbox_size %>
+        </td>
       </tr>
-    <% }) %>
+      <% }) %>
   </tbody>
+  <tfoot>
+  </tfoot>
 </table>
