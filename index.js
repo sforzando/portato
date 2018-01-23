@@ -1,5 +1,4 @@
 const Koa = require('koa');
-// const bodyParser = require('koa-bodyparser');
 const Favicon = require('koa-favicon');
 const Puppeteer = require('puppeteer');
 const Render = require('koa-ejs');
@@ -10,6 +9,8 @@ const User = require('./user');
 
 const app = new Koa();
 const router = new Router();
+
+const users = [];
 
 Render(app, {
   root: __dirname + '/views',
@@ -26,7 +27,9 @@ router.get('/', async (ctx, next) => {
 });
 
 router.get('/debug', async (ctx, next) => {
-  let users = [new User('example@example.com', 10, 10)]
+  users.push(new User('1@example.com', 1, 2));
+  users.push(new User('2@example.com', 3, 4));
+  users.push(new User('3@example.com', 5, 6));
   await ctx.render('content', {
     users
   });
@@ -34,7 +37,6 @@ router.get('/debug', async (ctx, next) => {
 
 app.use(router.routes());
 app.use(router.allowedMethods());
-// app.use(bodyParser());
 app.use(Favicon(__dirname + '/favicon.ico'));
 app.listen(process.env.PORT || 3000);
 
