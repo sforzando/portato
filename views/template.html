@@ -12,7 +12,9 @@
     <%- body %>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#table').tablesorter();
+        $('#table').tablesorter({
+          sortList: [[2, 1]]  // default sort by mailbox_size
+        });
       });
     </script>
   </body>

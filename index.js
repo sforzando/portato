@@ -5,12 +5,10 @@ const Render = require('koa-ejs');
 const Router = require('koa-router');
 const Serve = require('koa-static');
 
-const User = require('./user');
+let users = [];
 
 const app = new Koa();
 const router = new Router();
-
-const users = [];
 
 Render(app, {
   root: __dirname + '/views',
@@ -23,13 +21,18 @@ Render(app, {
 app.use(Serve(__dirname + '/views'));
 
 router.get('/', async (ctx, next) => {
-  ctx.body = await crawler();
+  if (users.length == 0) {
+    users = await crawler();
+  }
+  await ctx.render('content', {
+    users
+  });
 });
 
 router.get('/debug', async (ctx, next) => {
-  users.push(new User('1@example.com', 1, 2));
-  users.push(new User('2@example.com', 3, 4));
-  users.push(new User('3@example.com', 5, 6));
+  if (users.length == 0) {
+    users = await crawler();
+  }
   await ctx.render('content', {
     users
   });
@@ -70,31 +73,19 @@ const crawler = async () => {
   await page.select('select.mr5', 'j-monkey.jp');
   await page.waitFor(1000);
 
-  // Get all rows
   const output = await page.evaluate(() => {
-    const elements = document.querySelectorAll('tbody > tr');
-    let rows = [];
-    for (element of elements) {
-      const innerTexts = element.innerText.split('\t');
+    return Array.from(document.querySelectorAll('tbody > tr')).map((account) => {
+      console.log(account);  // XXX: for DEBUG!
+      const innerTexts = account.innerText.split('\t');
       const mail_address = innerTexts[0];
-      const mail_num = parseInt(innerTexts[1].replace(' 件', ''), 10);
+      const mail_num = parseInt(innerTexts[1].replace(/,/g, '').replace(' 件', ''), 10);
       const mailbox_size = parseFloat(innerTexts[2].replace(' MB', ''));
-      rows.push({
+      return {
         mail_address: mail_address,
         mail_num: mail_num,
         mailbox_size: mailbox_size
-      });
-    }
-
-    // Sort by mailbox_size
-    rows.sort((a, b) => {
-      if (a.mailbox_size < b.mailbox_size) {
-        return 1;
-      } else {
-        return -1;
-      }
+      };
     });
-    return rows;
   });
 
   await browser.close();
