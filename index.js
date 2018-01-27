@@ -83,7 +83,9 @@ const crawler = async () => {
       return {
         mail_address: mail_address,
         mail_num: mail_num,
-        mailbox_size: mailbox_size
+        mailbox_size: mailbox_size,
+        quota: 1000,
+        usage: mailbox_size / quota
       };
     });
   });
