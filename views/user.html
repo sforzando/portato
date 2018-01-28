@@ -1,7 +1,7 @@
 <table id="table" class="table is-bordered is-striped is-hoverable is-fullwidth">
-  <thead class="">
-    <tr class="">
-      <th class="{sorter: 'metadata'}">メールアドレス</th>
+  <thead>
+    <tr>
+      <th>メールアドレス</th>
       <th class="{sorter: 'metadata'}">メール数</th>
       <th class="{sorter: 'metadata'}">使用量</th>
       <th class="{sorter: 'metadata'}">上限</th>
@@ -12,7 +12,7 @@
     <% users.forEach((user) => { %>
       <% user.usage = Math.floor((user.mailbox_size / user.quota) * 10000) / 100 %>
       <tr>
-        <td class="{sortValue: '<%= user.mail_address %>'}">
+        <td>
           <%= user.mail_address %>
         </td>
         <td class="{sortValue: <%= user.mail_num %>}">
