@@ -48,7 +48,7 @@ $ heroku config:set account_password=PASSWORD
 ## Execute
 
 ```
-$ node index.js
+$ yarn start
 ```
 
 ## Deploy to Heroku
