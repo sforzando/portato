@@ -1,18 +1,35 @@
-<table id="table" class="tablesorter">
+<table id="table" class="table is-bordered is-striped is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th>メールアドレス</th>
-      <th>メール数</th>
-      <th>メールボックス使用量 [MB]</th>
+      <th class="{sorter: 'metadata'}">メール数</th>
+      <th class="{sorter: 'metadata'}">使用量</th>
+      <th class="{sorter: 'metadata'}">上限</th>
+      <th class="{sorter: 'metadata'}">使用率</th>
     </tr>
   </thead>
   <tbody>
     <% users.forEach((user) => { %>
+      <% user.usage = Math.floor((user.mailbox_size / user.quota) * 10000) / 100 %>
       <tr>
-        <td><%= user.mail_address %></td>
-        <td><%= user.mail_num %></td>
-        <td><%= user.mailbox_size %></td>
+        <td>
+          <%= user.mail_address %>
+        </td>
+        <td class="{sortValue: <%= user.mail_num %>}">
+          <%= user.mail_num.toLocaleString() %>
+        </td>
+        <td class="{sortValue: <%= user.mailbox_size %>}">
+          <%= user.mailbox_size.toLocaleString() %> <small>[MB]</small>
+        </td>
+        <td class="{sortValue: <%= user.quota %>}">
+          <%= user.quota.toLocaleString() %> <small>[MB]</small>
+        </td>
+        <td class="{sortValue: <%= user.usage %>}">
+          <progress class="progress" value="<%= user.usage %>" max="100"><%= user.usage %>%</progress>
+        </td>
       </tr>
-    <% }) %>
+      <% }) %>
   </tbody>
+  <tfoot>
+  </tfoot>
 </table>

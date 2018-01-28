@@ -1,0 +1,11 @@
+.table th {
+  text-align: center;
+  background-image: url('/image/bg.gif');
+  background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+.table td {
+  text-align: right;
+}

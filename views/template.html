@@ -1,21 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Portato</title>
-    <link rel="stylesheet" href="/style/normalize.css">
-    <link rel="stylesheet" href="/js/tablesorter/themes/blue/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/tablesorter/jquery.tablesorter.min.js"></script>
-  </head>
-  <body>
+
+<head>
+  <title>Portato</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="//use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
+  <link rel="stylesheet" href="/style/main.css">
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/js/tablesorter/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="/js/tablesorter/jquery.metadata.js"></script>
+</head>
+
+<body>
+  <nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+          <img src="/image/logo_640x160.png" alt="Portato: Mailbox Quota System" width="112" height="28">
+        </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start">
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-rounded" href="#" disabled>
+                  <span class="icon">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                  <span>Export</span>
+                </a>
+            </p>
+            <p class="control">
+              <a class="button is-dark is-rounded" href="#" disabled>
+                  <span class="icon">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                  </span>
+                  <span>Settings</span>
+                </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container is-fluid">
     <%- body %>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#table').tablesorter({
-          sortList: [[2, 1]]  // default sort by mailbox_size
-        });
+  </div>
+  <footer>
+    <div class="container">
+      <div class="content has-text-centered">
+        &copy; sforzando LLC.
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#table').tablesorter({
+        sortList: [
+          [2, 1]
+        ] // default sort by mailbox_size
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>

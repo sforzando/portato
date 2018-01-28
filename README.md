@@ -63,8 +63,7 @@ $ heroku open
 - [ ] Send alert mail
 
 ### MID (TODO)
-- [ ] Make data persistent
+- [ ] Make data persistent via PostgreSQL
 - [ ] Prepare CI
 
 ### LOW (XXX)
-- [ ] Use cache
