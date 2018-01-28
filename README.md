@@ -60,10 +60,10 @@ $ heroku open
 
 ## ToDo
 ### HIGH (FIXME)
-- [ ] Send alert mail
+- [ ] Check quota
+- [ ] Send alert mails
 
 ### MID (TODO)
 - [ ] Make data persistent via PostgreSQL
-- [ ] Prepare CI
 
 ### LOW (XXX)
