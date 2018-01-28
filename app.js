@@ -34,8 +34,8 @@ router.get('/', async (ctx, next) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(Favicon(__dirname + '/favicon.ico'));
-app.listen(process.env.PORT || 3000);
 
+app.listen(process.env.PORT || 3000);
 if (!process.env.DYNO) {
   require('dotenv').config();
 }
