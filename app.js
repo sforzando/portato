@@ -4,12 +4,13 @@ const Render = require('koa-ejs');
 const Router = require('koa-router');
 const Serve = require('koa-static');
 
-const crawler = require('./lib/crawler/zenlogic');
-
 let users = [];
 
 const app = new Koa();
 const router = new Router();
+
+const crawler = require('./lib/crawler/zenlogic');
+const jsonError = require('./middlewares/json_error');
 
 Render(app, {
   root: __dirname + '/views',
@@ -19,6 +20,7 @@ Render(app, {
   debug: true
 });
 
+app.use(jsonError);
 app.use(Serve(__dirname + '/views'));
 
 router.get('/', async (ctx, next) => {
