@@ -22,7 +22,11 @@
     "test": "mocha -t 30000"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "eslint": "^4.18.2",
+=======
+    "eslint": "^4.18.0",
+>>>>>>> :+1: Add eslint
     "mocha": "^4.1.0"
   }
 }

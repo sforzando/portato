@@ -27,7 +27,7 @@ router.get('/', async (ctx, next) => {
   if (users.length == 0) {
     users = await crawler();
   }
-  console.log(users);  // XXX: for Debug!
+
   await ctx.render('content', {
     users
   });
