@@ -1,5 +1,4 @@
-portato
-====
+# portato
 
 Mail quota system for JMC.
 
@@ -7,27 +6,28 @@ Mail quota system for JMC.
 
 > Portato [porˈtaːto] (Italian, past participle of portare, "to carry"), French notes portées (Anon. n.d.), in music denotes a smooth, pulsing articulation and is often notated by adding dots under slur markings.
 
-TOC
-----
+## TOC
 
-- [TOC](#toc)
-- [Setup](#setup)
-  - [Local](#local)
-  - [Heroku](#heroku)
-- [Execute](#execute)
-- [Deploy to Heroku](#deploy-to-heroku)
-- [ToDo](#todo)
-  - [HIGH (FIXME)](#high-fixme)
-  - [MID (TODO)](#mid-todo)
-  - [LOW (XXX)](#low-xxx)
+* [TOC](#toc)
+* [Setup](#setup)
+  * [Local](#local)
+  * [Heroku](#heroku)
+* [Execute](#execute)
+* [Deploy to Heroku](#deploy-to-heroku)
+* [ToDo](#todo)
+  * [HIGH (FIXME)](#high-fixme)
+  * [MID (TODO)](#mid-todo)
+  * [LOW (XXX)](#low-xxx)
 
 ## Setup
+
 ### Local
 
 ```
 $ yarn install
 $ echo account_username=USERNAME > .env
 $ echo account_password=PASSWORD >> .env
+$ echo DATABASE_URL=postgres://DB_USERNAME:DB_PASSWORD@DB_HOST:DB_PORT/DB_DATABASE >> .env
 ```
 
 ### Heroku
@@ -38,6 +38,8 @@ $ heroku accounts:add jmc && heroku accounts set jmc
 $ heroku apps:create portato
 $ heroku buildpacks:set heroku/nodejs
 $ heroku buildpacks:add https://github.com/CoffeeAndCode/puppeteer-heroku-buildpack
+$ heroku addons:create heroku-postgresql:hobby-dev
+$ heroku config:add TZ=Asia/Tokyo
 $ heroku config:set account_username=USERNAME
 $ heroku config:set account_password=PASSWORD
 ```
@@ -56,13 +58,17 @@ $ heroku open
 ```
 
 ## ToDo
+
 ### HIGH (FIXME)
-- [ ] Check quota
-- [ ] Send alert mails
+
+* [ ] Check quota
+* [ ] Send alert mails
 
 ### MID (TODO)
-- [ ] Make data persistent via PostgreSQL
-- [ ] Show total usage
+
+* [ ] Make data persistent via PostgreSQL
+* [ ] Show total usage
 
 ### LOW (XXX)
-- [ ] Fix progress width and style
+
+* [ ] Fix progress width and style
