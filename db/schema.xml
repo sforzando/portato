@@ -31,13 +31,13 @@
 		<type label="Year" quote="" sql="YEAR" length="0"/>
 		<type label="Timestamp" quote="'" sql="TIMESTAMP" length="0"/>
 	</group>
-	
+
 	<group label="Miscellaneous" color="rgb(200,200,255)">
 		<type label="ENUM" quote="" sql="ENUM" length="1"/>
 		<type label="SET" quote="" sql="SET" length="1"/>
 		<type label="Bit" quote="" sql="bit" length="0"/>
 	</group>
-</datatypes><table x="300" y="200" name="user">
+</datatypes><table x="300" y="200" name="users">
 <row name="mail_address" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>'NULL'</default></row>
@@ -58,13 +58,13 @@
 <part>mail_address</part>
 </key>
 </table>
-<table x="600" y="200" name="usage">
+<table x="600" y="200" name="usages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="user" null="0" autoincrement="0">
+<row name="users" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
-<default>'NULL'</default><relation table="user" row="mail_address" />
+<default>'NULL'</default><relation table="users" row="mail_address" />
 </row>
 <row name="mailbox_size" null="0" autoincrement="0">
 <datatype>DECIMAL</datatype>
@@ -74,7 +74,7 @@
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
-<part>user</part>
+<part>users</part>
 </key>
 </table>
 </sql>

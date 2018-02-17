@@ -6,12 +6,12 @@
 SET CONSTRAINTS ALL DEFERRED;
 
 -- ---
--- Table 'user'
+-- Table 'users'
 -- ---
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `users`;
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `mail_address` TEXT NOT NULL DEFAULT 'test@example.com',
   `quota_size` REAL NOT NULL DEFAULT 1024.0,
   `created_at` TIMESTAMP NOT NULL,
@@ -21,24 +21,24 @@ CREATE TABLE `user` (
 );
 
 -- ---
--- Table 'usage'
+-- Table 'usages'
 -- ---
 
-DROP TABLE IF EXISTS `usage`;
+DROP TABLE IF EXISTS `usages`;
 
-CREATE TABLE `usage` (
+CREATE TABLE `usages` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
-  `user` TEXT NOT NULL DEFAULT 'test@example.com',
+  `users` TEXT NOT NULL DEFAULT 'test@example.com',
   `mailbox_size` REAL NOT NULL DEFAULT 0.0,
   `checked_at` TIMESTAMP NOT NULL,
-  PRIMARY KEY (`id`, `user`)
+  PRIMARY KEY (`id`, `users`)
 );
 
 -- ---
 -- Foreign Keys
 -- ---
 
-ALTER TABLE `usage` ADD FOREIGN KEY (user) REFERENCES `user` (`mail_address`);
+ALTER TABLE `usages` ADD FOREIGN KEY (users) REFERENCES `users` (`mail_address`);
 
 -- ---
 -- Table Properties
