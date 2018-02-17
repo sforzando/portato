@@ -10,19 +10,16 @@ Mail quota system for JMC.
 TOC
 ----
 
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
+- [TOC](#toc)
 - [Setup](#setup)
-	- [Local](#local)
-	- [Heroku](#heroku)
+  - [Local](#local)
+  - [Heroku](#heroku)
 - [Execute](#execute)
 - [Deploy to Heroku](#deploy-to-heroku)
 - [ToDo](#todo)
-	- [HIGH (FIXME)](#high-fixme)
-	- [MID (TODO)](#mid-todo)
-	- [LOW (XXX)](#low-xxx)
-
-<!-- /TOC -->
+  - [HIGH (FIXME)](#high-fixme)
+  - [MID (TODO)](#mid-todo)
+  - [LOW (XXX)](#low-xxx)
 
 ## Setup
 ### Local
@@ -65,5 +62,7 @@ $ heroku open
 
 ### MID (TODO)
 - [ ] Make data persistent via PostgreSQL
+- [ ] Show total usage
 
 ### LOW (XXX)
+- [ ] Fix progress width and style
