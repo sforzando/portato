@@ -9,27 +9,53 @@
     </tr>
   </thead>
   <tbody>
-    <% users.forEach((user) => { %>
-      <% user.usage = Math.floor((user.mailbox_size / user.quota) * 10000) / 100 %>
-      <tr>
-        <td>
-          <%= user.mail_address %>
-        </td>
-        <td class="{sortValue: <%= user.mail_num %>}">
-          <%= user.mail_num.toLocaleString() %>
-        </td>
-        <td class="{sortValue: <%= user.mailbox_size %>}">
-          <%= user.mailbox_size.toLocaleString() %> <small>[MB]</small>
-        </td>
-        <td class="{sortValue: <%= user.quota %>}">
-          <%= user.quota.toLocaleString() %> <small>[MB]</small>
-        </td>
-        <td class="{sortValue: <%= user.usage %>}">
-          <progress class="progress" value="<%= user.usage %>" max="100"><%= user.usage %>%</progress>
-        </td>
-      </tr>
-      <% }) %>
+    <% let total_mail_num = 0 %>
+      <% let total_mailbox_size = 0 %>
+        <% users.forEach((user) => { %>
+          <% total_mail_num += user.mail_num %>
+            <% total_mailbox_size += user.mailbox_size %>
+              <% user.usage = Math.floor((user.mailbox_size / user.quota) * 10000) / 100 %>
+                <tr>
+                  <td>
+                    <%= user.mail_address %>
+                  </td>
+                  <td class="{sortValue: <%= user.mail_num %>}">
+                    <%= user.mail_num.toLocaleString() %>
+                  </td>
+                  <td class="{sortValue: <%= user.mailbox_size %>}">
+                    <%= user.mailbox_size.toLocaleString() %>
+                      <small>[MB]</small>
+                  </td>
+                  <td class="{sortValue: <%= user.quota %>}">
+                    <%= user.quota.toLocaleString() %>
+                      <small>[MB]</small>
+                  </td>
+                  <td class="{sortValue: <%= user.usage %>}">
+                    <progress class="progress" value="<%= user.usage %>" max="100">
+                      <%= user.usage %>%</progress>
+                  </td>
+                </tr>
+                <% }) %>
   </tbody>
   <tfoot>
+    <tr>
+      <td>
+        <strong>Total:</strong>
+      </td>
+      <td>
+        <%= total_mail_num %>
+      </td>
+      <td>
+        <%= (total_mailbox_size / 1024.0).toFixed(3) %>
+          <small>[GB]</small>
+      </td>
+      <td>300
+        <small>[GB]</small>
+      </td>
+      <td>
+        <progress class="progress" value="<%= total_mailbox_size %>" max="307200">
+          <%= total_mailbox_size %>%</progress>
+      </td>
+    </tr>
   </tfoot>
 </table>
