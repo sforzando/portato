@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:latest-browsers
+      - image: circleci/node:latest
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -16,13 +16,11 @@ jobs:
 
     working_directory: ~/repo
 
+    environment:
+      TZ: /usr/share/zoneinfo/Asia/Tokyo
+
     steps:
       - checkout
-
-      # - run:
-      #     name: Install Yarn
-      #     command: |
-      #       npm install -g yarn
 
       - run:
           name: System information
