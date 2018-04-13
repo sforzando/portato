@@ -8,16 +8,16 @@ Mail quota system for JMC.
 
 ## TOC
 
-* [TOC](#toc)
-* [Setup](#setup)
-  * [Local](#local)
-  * [Heroku](#heroku)
-* [Execute](#execute)
-* [Deploy to Heroku](#deploy-to-heroku)
-* [ToDo](#todo)
-  * [HIGH (FIXME)](#high-fixme)
-  * [MID (TODO)](#mid-todo)
-  * [LOW (XXX)](#low-xxx)
+- [TOC](#toc)
+- [Setup](#setup)
+  - [Local](#local)
+  - [Heroku](#heroku)
+- [Execute](#execute)
+- [Deploy to Heroku](#deploy-to-heroku)
+- [ToDo](#todo)
+  - [HIGH (FIXME)](#high-fixme)
+  - [MID (TODO)](#mid-todo)
+  - [LOW (XXX)](#low-xxx)
 
 ## Setup
 
@@ -49,6 +49,8 @@ $ heroku config:set account_password=PASSWORD
 ```
 $ yarn start
 ```
+
+http://localhost:3000/
 
 ## Deploy to Heroku
 
