@@ -53,7 +53,8 @@
         <small>[GB]</small>
       </td>
       <td>
-        <progress class="progress" value="<%= total_mailbox_size %>" max="307200">
+        <progress class="progress" value="<%= total_mailbox_size %>" data-label="<%= (total_mailbox_size / 307.2).toFixed(2) %> %"
+          max="307200">
           <%= total_mailbox_size %>%</progress>
       </td>
     </tr>
