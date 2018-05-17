@@ -1,6 +1,8 @@
 portato
 ====
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sforzando/portato.svg)](https://greenkeeper.io/)
+
 Mail quota system for JMC.
 
 [![CircleCI](https://circleci.com/gh/sforzando/portato.svg?style=svg)](https://circleci.com/gh/sforzando/portato)
