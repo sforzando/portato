@@ -20,7 +20,7 @@
     "test": "mocha -t 30000"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
+    "eslint": "^5.0.0",
     "mocha": "^5.1.1"
   }
 }
