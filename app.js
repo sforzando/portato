@@ -16,7 +16,7 @@ Render(app, {
   layout: 'template',
   viewExt: 'html',
   cache: false,
-  debug: true
+  debug: true,
 });
 
 app.use(Serve(__dirname + '/views'));
@@ -25,9 +25,9 @@ router.get('/', async (ctx, next) => {
   if (users.length == 0) {
     users = await crawler();
   }
-  console.log(users);  // XXX: for Debug!
+  await next();
   await ctx.render('content', {
-    users
+    users,
   });
 });
 

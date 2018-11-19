@@ -23,10 +23,12 @@ TOC
   - [HIGH (FIXME)](#high-fixme)
   - [MID (TODO)](#mid-todo)
   - [LOW (XXX)](#low-xxx)
+- [Misc.](#misc)
 
 <!-- /TOC -->
 
 ## Setup
+
 ### Local
 
 ```
@@ -37,6 +39,7 @@ $ echo DATABASE_URL=postgres://DB_USERNAME:DB_PASSWORD@DB_HOST:DB_PORT/DB_DATABA
 ```
 
 ### Heroku
+
 On MacOS,
 
 ```
@@ -69,11 +72,16 @@ $ heroku open
 ```
 
 ## ToDo
+
 ### HIGH (FIXME)
+
 - [ ] Check quota
 - [ ] Send alert mail
 
 ### MID (TODO)
+
 - [ ] Make data persistent via PostgreSQL
 
 ### LOW (XXX)
+
+## Misc.
