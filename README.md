@@ -1,11 +1,13 @@
 portato
 ====
 
-Mail quota system for JMC.
-
 [![CircleCI](https://circleci.com/gh/sforzando/portato.svg?style=svg)](https://circleci.com/gh/sforzando/portato)
 
+Mail quota system for JMC.
+
 > Portato [porˈtaːto] (Italian, past participle of portare, "to carry"), French notes portées (Anon. n.d.), in music denotes a smooth, pulsing articulation and is often notated by adding dots under slur markings.
+
+![screenshot_portato_20181119](https://user-images.githubusercontent.com/32637762/48684910-4745b400-ebf7-11e8-88c1-2f9a164d9d4f.png)
 
 TOC
 ----
@@ -35,10 +37,15 @@ $ echo DATABASE_URL=postgres://DB_USERNAME:DB_PASSWORD@DB_HOST:DB_PORT/DB_DATABA
 ```
 
 ### Heroku
+On MacOS,
+
+```
+$ brew install heroku/brew/heroku
+```
 
 ```
 $ heroku plugins:install heroku-accounts
-$ heroku accounts:add jmc && heroku accounts set jmc
+$ heroku accounts:add jmc && heroku accounts:set jmc
 $ heroku apps:create portato
 $ heroku buildpacks:set heroku/nodejs
 $ heroku buildpacks:add https://github.com/CoffeeAndCode/puppeteer-heroku-buildpack
@@ -64,7 +71,7 @@ $ heroku open
 ## ToDo
 ### HIGH (FIXME)
 - [ ] Check quota
-- [ ] Send alert mails
+- [ ] Send alert mail
 
 ### MID (TODO)
 - [ ] Make data persistent via PostgreSQL
