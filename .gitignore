@@ -115,3 +115,5 @@ screenshot.png
 
 # Ignore all local history of files
 .history
+.gitsecret/keys/random_seed
+!*.secret
