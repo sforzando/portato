@@ -8,21 +8,24 @@ Mail quota system for JMC.
 
 ![screenshot_portato_20181119](https://user-images.githubusercontent.com/32637762/48684910-4745b400-ebf7-11e8-88c1-2f9a164d9d4f.png)
 
-- [portato](#portato)
-  - [Setup](#setup)
-    - [Local](#local)
-    - [Heroku](#heroku)
-  - [Execute](#execute)
-  - [Deploy to Heroku](#deploy-to-heroku)
-  - [ToDo](#todo)
-    - [HIGH (FIXME)](#high-fixme)
-    - [MID (TODO)](#mid-todo)
-    - [LOW (XXX)](#low-xxx)
-  - [Misc](#misc)
+## How to
 
-## Setup
+```shell
+$ make help
+setup                初回
+start                起動
+open                 閲覧
+hide                 秘匿
+reveal               暴露
+test                 試験
+clean                掃除
+prune                破滅
+help                 助言
+```
 
-### Local
+### Setup
+
+#### Local
 
 It needs to store the information to log in to Zenlogic as `account_username` / `account_password`.
 If you use PostgreSQL on Heroku, it needs `DATABASE_URL`, too.
@@ -32,7 +35,7 @@ npm install
 make reveal
 ```
 
-### Heroku
+#### Heroku
 
 On MacOS,
 
@@ -40,7 +43,7 @@ On MacOS,
 brew tap heroku/brew && brew install heroku
 ```
 
-#### Initialize
+##### Initialize
 
 ```shell
 heroku apps:create portato
@@ -52,14 +55,14 @@ heroku config:set account_username=USERNAME
 heroku config:set account_password=PASSWORD
 ```
 
-#### Setup
+##### Setup
 
 ```shell
 heroku login
 git remote add heroku https://git.heroku.com/portato.git
 ```
 
-## Execute
+### Execute
 
 ```shell
 npm start
@@ -67,27 +70,27 @@ npm start
 
 Then `http://0.0.0.0:3000/` will wait your access.
 
-## Deploy to Heroku
+### Deploy to Heroku
 
 ```shell
 git push heroku master
 heroku open
 ```
 
-## ToDo
+### ToDo
 
-### HIGH (FIXME)
+#### HIGH (FIXME)
 
 - [ ] Check quota
 
-### MID (TODO)
+#### MID (TODO)
 
 - [ ] Send alert mail
 
-### LOW (XXX)
+#### LOW (XXX)
 
 - [ ] Make data persistent via PostgreSQL
 
-## Misc
+### Misc
 
 T. B. D.
