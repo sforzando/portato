@@ -24,6 +24,9 @@ Mail quota system for JMC.
 
 ### Local
 
+It needs to store the information to log in to Zenlogic as `account_username` / `account_password`.
+If you use PostgreSQL on Heroku, it needs `DATABASE_URL`, too.
+
 ```shell
 npm install
 echo account_username=USERNAME > .env
@@ -39,6 +42,8 @@ On MacOS,
 brew tap heroku/brew && brew install heroku
 ```
 
+#### Initialize
+
 ```shell
 heroku apps:create portato
 heroku buildpacks:set heroku/nodejs
@@ -49,11 +54,20 @@ heroku config:set account_username=USERNAME
 heroku config:set account_password=PASSWORD
 ```
 
+#### Setup
+
+```shell
+heroku login
+git remote add heroku https://git.heroku.com/portato.git
+```
+
 ## Execute
 
 ```shell
 npm start
 ```
+
+Then `http://0.0.0.0:3000/` will wait your access.
 
 ## Deploy to Heroku
 
