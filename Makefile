@@ -49,14 +49,11 @@ reveal: ## 暴露
 # build: up ## 構築
 # 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) yarn build
 
-# start: build ## 開始
-# 	$(CMD_DOCKER_COMPOSE) exec --detach $(MAIN_CONTAINER_APP) yarn start
-
 # lint: up ## 検証
 # 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) yarn lint
 
-# test: up ## 試験
-# 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) yarn test
+test: ## 試験
+	npm test
 
 # doc: up ## 文書
 # 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) yarn test

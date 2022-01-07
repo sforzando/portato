@@ -6,10 +6,10 @@ const Serve = require('koa-static');
 
 const crawler = require('./lib/crawler/zenlogic');
 
-let users = [];
-
 const app = new Koa();
 const router = new Router();
+
+let users = [];
 
 Render(app, {
   root: __dirname + '/views',
