@@ -67,6 +67,12 @@ npm start
 
 Then `http://0.0.0.0:3000/` will wait your access.
 
+If you want to run as DEBUG mode,
+
+```shell
+npm run debug
+```
+
 ### Deploy to Heroku
 
 ```shell

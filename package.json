@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
+    "debug": "DEBUG=koa* node app.js",
     "test": "mocha -t 30000"
   },
   "dependencies": {
