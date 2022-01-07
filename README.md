@@ -27,9 +27,6 @@ help                 助言
 
 #### Local
 
-It needs to store the information to log in to Zenlogic as `account_username` / `account_password`.
-If you use PostgreSQL on Heroku, it needs `DATABASE_URL`, too.
-
 ```shell
 npm install
 make reveal
