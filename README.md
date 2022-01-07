@@ -1,6 +1,6 @@
 # portato
 
-[![CircleCI](https://circleci.com/gh/sforzando/portato.svg?style=svg)](https://circleci.com/gh/sforzando/portato)
+[![CI](https://github.com/sforzando/portato/actions/workflows/ci.yml/badge.svg)](https://github.com/sforzando/portato/actions/workflows/ci.yml)
 
 Mail quota system for JMC.
 
@@ -29,9 +29,7 @@ If you use PostgreSQL on Heroku, it needs `DATABASE_URL`, too.
 
 ```shell
 npm install
-echo account_username=USERNAME > .env
-echo account_password=PASSWORD >> .env
-echo DATABASE_URL=postgres://DB_USERNAME:DB_PASSWORD@DB_HOST:DB_PORT/DB_DATABASE >> .env
+make reveal
 ```
 
 ### Heroku

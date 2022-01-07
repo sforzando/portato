@@ -12,27 +12,30 @@ PREVIEW_URL := http://0.0.0.0:3000/
 
 .PHONY: ps up setup restart renew shell logs follow open hide reveal build start lint test doc generate deploy stop down clean prune help
 
-ps: ## 監視
-	$(CMD_DOCKER_COMPOSE) ps
+# ps: ## 監視
+# 	$(CMD_DOCKER_COMPOSE) ps
 
-up: ## 起動
-	$(CMD_DOCKER_COMPOSE) up --detach --remove-orphans
+# up: ## 起動
+# 	$(CMD_DOCKER_COMPOSE) up --detach --remove-orphans
 
 setup: up ## 初回
 	echo "TODO: Not Implemented Yet!"
 
-restart: stop up ; ## 再起
+start: ## 起動
+	npm start
 
-renew: down clean setup ; ## 転生
+# restart: stop up ; ## 再起
 
-shell: up ## 接続
-	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) $(MAIN_CONTAINER_SHELL)
+# renew: down clean setup ; ## 転生
 
-logs: ## 記録
-	$(CMD_DOCKER_COMPOSE) logs --timestamp
+# shell: up ## 接続
+# 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) $(MAIN_CONTAINER_SHELL)
 
-follow: ## 追跡
-	$(CMD_DOCKER_COMPOSE) logs --timestamp --follow
+# logs: ## 記録
+# 	$(CMD_DOCKER_COMPOSE) logs --timestamp
+
+# follow: ## 追跡
+# 	$(CMD_DOCKER_COMPOSE) logs --timestamp --follow
 
 open: ## 閲覧
 	open ${PREVIEW_URL}
@@ -61,14 +64,14 @@ reveal: ## 暴露
 # generate: up ## 生成
 # 	$(CMD_DOCKER_COMPOSE) exec $(MAIN_CONTAINER_APP) yarn generate
 
-deploy: generate ## 配備
-	echo "TODO: Not Implemented Yet!"
+# deploy: generate ## 配備
+# 	echo "TODO: Not Implemented Yet!"
 
-stop: ## 停止
-	$(CMD_DOCKER_COMPOSE) stop
+# stop: ## 停止
+# 	$(CMD_DOCKER_COMPOSE) stop
 
-down: ## 削除
-	$(CMD_DOCKER_COMPOSE) down --rmi all --remove-orphans
+# down: ## 削除
+# 	$(CMD_DOCKER_COMPOSE) down --rmi all --remove-orphans
 
 clean: down ## 掃除
 	rm -rf log/*
