@@ -18,7 +18,7 @@
     "koa-favicon": "^2.1.0",
     "koa-router": "^10.1.1",
     "koa-static": "^5.0.0",
-    "puppeteer": "^13.0.1"
+    "puppeteer": "^13.6.0"
   },
   "devDependencies": {
     "mocha": "^9.1.3"
