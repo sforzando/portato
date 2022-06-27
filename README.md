@@ -52,7 +52,7 @@ heroku config:set account_username=USERNAME
 heroku config:set account_password=PASSWORD
 ```
 
-##### Setup
+##### Setup Heroku
 
 ```shell
 heroku login
@@ -62,7 +62,7 @@ git remote add heroku https://git.heroku.com/portato.git
 ### Execute
 
 ```shell
-npm start
+make start
 ```
 
 Then `http://0.0.0.0:3000/` will wait your access.
@@ -76,7 +76,7 @@ npm run debug
 ### Deploy to Heroku
 
 ```shell
-git push heroku master
+git push heroku main
 heroku open
 ```
 
