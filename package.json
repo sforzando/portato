@@ -13,7 +13,7 @@
     "heroku:logs": "heroku logs --tail --app portato"
   },
   "dependencies": {
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "koa": "^2.13.4",
     "koa-ejs": "^4.3.0",
     "koa-favicon": "^2.1.0",
